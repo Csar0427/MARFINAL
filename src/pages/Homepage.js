@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { faMapMarkerAlt, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import "./homepage.css";
-import hamburgerImage from "../src/assests/images/hamburger.jpg";
+import "../styles/homepage.css";
+import hamburgerImage from "../assests/images/hamburger.jpg";
 
 const Homepage = ({ onOpenNavbar }) => {
   return (

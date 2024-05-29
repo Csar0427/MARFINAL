@@ -6,12 +6,11 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import BasketSection from "./Basket";
-import MainCourseSection from "./MainCourseSection";
-import DrinkSection from "./DrinkSection";
-import DessertSection from "./DessertSection";
-import Homepage from "./Homepage";
-import OrderSummary from "./OrderSummary";
+import BasketSection from "../src/pages/Basket";
+import MainCourseSection from "../src/pages/MainCourseSection";
+import DrinkSection from "../src/pages/DrinkSection";
+import DessertSection from "../src/pages/DessertSection";
+import Homepage from "../src/pages/Homepage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -163,15 +162,6 @@ const App = () => {
             <Route
               path="/dessert"
               element={<DessertSection addToBasket={addToBasket} />}
-            />
-            <Route
-              path="/order-summary"
-              element={
-                <OrderSummary
-                  basketItems={basketItems}
-                  ticketNumber={generatedTicketNumber}
-                />
-              }
             />
             <Route
               path="/basket"

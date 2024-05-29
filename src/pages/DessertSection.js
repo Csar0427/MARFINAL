@@ -1,27 +1,27 @@
 import React, { useState } from "react";
-import mainCourses from "./database/mainCourseDb";
-import "./App.css";
+import desserts from "../database/dessertDb";
+import "../App.css";
 
-const MainCourse = ({ addToBasket }) => {
-  const [selectedMainCourse, setSelectedMainCourse] = useState(null);
+const DessertSection = ({ addToBasket }) => {
+  const [selectedDessert, setSelectedDessert] = useState(null);
   const [descriptionVisible, setDescriptionVisible] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [orderAdded, setOrderAdded] = useState(false); // State for order added notification
 
-  const handleItemClick = (mainCourse) => {
-    setSelectedMainCourse(mainCourse);
+  const handleItemClick = (dessert) => {
+    setSelectedDessert(dessert);
     setDescriptionVisible(true);
   };
 
   const handleCloseDescription = () => {
-    setSelectedMainCourse(null);
+    setSelectedDessert(null);
     setDescriptionVisible(false);
     setQuantity(1);
   };
 
   const handleOrder = () => {
-    if (selectedMainCourse && quantity > 0) {
-      addToBasket({ ...selectedMainCourse, quantity });
+    if (selectedDessert && quantity > 0) {
+      addToBasket({ ...selectedDessert, quantity });
       setOrderAdded(true); // Set order added notification to true
       handleCloseDescription();
       setTimeout(() => {
@@ -46,35 +46,35 @@ const MainCourse = ({ addToBasket }) => {
 
   return (
     <div className="section dessert-section">
-      <h2>Main Courses</h2>
-      <p>Indulge in our delightful main courses.</p>
+      <h2>Desserts</h2>
+      <p>Indulge in our delightful desserts.</p>
       <div className="menu dessert-menu">
-        {mainCourses.map((mainCourse, index) => (
+        {desserts.map((dessert, index) => (
           <div
             key={index}
             className={`item dessert-item ${
               index % 2 === 0 ? "left" : "right"
             }`}
-            onClick={() => handleItemClick(mainCourse)}
+            onClick={() => handleItemClick(dessert)}
           >
             <img
-              src={mainCourse.image}
-              alt={mainCourse.name}
+              src={dessert.image}
+              alt={dessert.name}
               className="dessert-image"
             />
             <div className="dessert-info">
-              <h3>{mainCourse.name}</h3>
-              <p className="price">{mainCourse.price}</p>
-              <button onClick={() => handleItemClick(mainCourse)}>Order</button>
+              <h3>{dessert.name}</h3>
+              <p className="price">{dessert.price}</p>
+              <button onClick={() => handleItemClick(dessert)}>Order</button>
             </div>
           </div>
         ))}
       </div>
-      {selectedMainCourse && descriptionVisible && (
+      {selectedDessert && descriptionVisible && (
         <div className="description dessert-description">
           <div className="description-content">
-            <h3>{selectedMainCourse.name}</h3>
-            <p>{selectedMainCourse.description}</p>
+            <h3>{selectedDessert.name}</h3>
+            <p>{selectedDessert.description}</p>
             <div className="quantity-counter">
               <label>Quantity:</label>
               <input
@@ -105,4 +105,4 @@ const MainCourse = ({ addToBasket }) => {
   );
 };
 
-export default MainCourse;
+export default DessertSection;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./Basket.css";
-import { writeOrderToDatabase } from "./firebase";
+import "../styles/Basket.css";
+import { writeOrderToDatabase } from "../api/firebase";
 
 const BasketSection = ({
   basketItems,

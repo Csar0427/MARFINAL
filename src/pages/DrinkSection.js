@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import drinks from "./database/drinksDb";
-import './App.css';
+import React, { useState } from "react";
+import drinks from "../database/drinksDb";
+import "../App.css";
 
 const DrinkSection = ({ addToBasket }) => {
   const [selectedDrink, setSelectedDrink] = useState(null);
@@ -40,13 +40,13 @@ const DrinkSection = ({ addToBasket }) => {
   const handleQuantityChange = (e) => {
     const value = e.target.value;
     const parsedValue = parseInt(value, 10);
-    if (value === '' || (parsedValue >= 1)) {
-      setQuantity(value === '' ? '' : parsedValue);
+    if (value === "" || parsedValue >= 1) {
+      setQuantity(value === "" ? "" : parsedValue);
     }
   };
 
   const handleQuantityBlur = () => {
-    if (quantity === '' || quantity < 1) {
+    if (quantity === "" || quantity < 1) {
       setQuantity(1);
     }
   };
@@ -57,7 +57,11 @@ const DrinkSection = ({ addToBasket }) => {
       <p>Quench your thirst with our refreshing drinks.</p>
       <div className="menu dessert-menu">
         {drinks.map((drink, index) => (
-          <div key={index} className="item dessert-item" onClick={() => handleItemClick(drink)}>
+          <div
+            key={index}
+            className="item dessert-item"
+            onClick={() => handleItemClick(drink)}
+          >
             <img src={drink.image} alt={drink.name} />
             <div className="dessert-info">
               <h3>{drink.name}</h3>
@@ -75,7 +79,7 @@ const DrinkSection = ({ addToBasket }) => {
               {selectedDrink.sizes.map((size, index) => (
                 <button
                   key={index}
-                  className={selectedSize === size ? 'selected' : ''}
+                  className={selectedSize === size ? "selected" : ""}
                   onClick={() => handleSelectSize(size)}
                 >
                   {size}
@@ -84,18 +88,22 @@ const DrinkSection = ({ addToBasket }) => {
             </div>
             <div className="quantity-counter">
               <label>Quantity:</label>
-              <input 
-                type="number" 
-                min="1" 
-                value={quantity} 
+              <input
+                type="number"
+                min="1"
+                value={quantity}
                 onChange={handleQuantityChange}
                 onBlur={handleQuantityBlur}
-                style={{ width: '50px', fontSize: '14px' }} 
+                style={{ width: "50px", fontSize: "14px" }}
               />
             </div>
             <div className="button-group">
-              <button className="close-button" onClick={handleCloseDescription}>Close</button>
-              <button className="order-button" onClick={handleOrder}>Order Now</button>
+              <button className="close-button" onClick={handleCloseDescription}>
+                Close
+              </button>
+              <button className="order-button" onClick={handleOrder}>
+                Order Now
+              </button>
             </div>
           </div>
         </div>
@@ -107,6 +115,6 @@ const DrinkSection = ({ addToBasket }) => {
       )}
     </div>
   );
-}
+};
 
 export default DrinkSection;
