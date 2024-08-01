@@ -10,6 +10,9 @@ import BasketSection from "../src/pages/Basket";
 import MainCourseSection from "../src/pages/MainCourseSection";
 import DrinkSection from "../src/pages/DrinkSection";
 import DessertSection from "../src/pages/DessertSection";
+import BurgerSection from "../src/pages/BurgersSection";
+import CakeSection from "../src/pages/CakeSection";
+import CoffeeSection from "../src/pages/CoffeeSection"; // Import CoffeeSection
 import Homepage from "../src/pages/Homepage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
@@ -18,7 +21,7 @@ import {
   faBasketShopping,
   faCake,
   faGlassWater,
-  faBars,
+  faBurger,
 } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
 
@@ -127,6 +130,33 @@ const App = () => {
                 <FontAwesomeIcon icon={faCake} /> Dessert
               </Link>
             </li>
+            <li>
+              <Link
+                to="/burger"
+                style={{ textDecoration: "none" }}
+                onClick={() => setSidebarOpen(false)} // Close navbar on link click
+              >
+                <FontAwesomeIcon icon={faBurger} /> Burgers
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/cake"
+                style={{ textDecoration: "none" }}
+                onClick={() => setSidebarOpen(false)} // Close navbar on link click
+              >
+                <FontAwesomeIcon icon={faCake} /> Cakes
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/coffee"
+                style={{ textDecoration: "none" }}
+                onClick={() => setSidebarOpen(false)} // Close navbar on link click
+              >
+                <FontAwesomeIcon icon={faCoffee} /> Coffee
+              </Link>
+            </li>
           </ul>
 
           <h3>Order</h3>
@@ -162,6 +192,18 @@ const App = () => {
             <Route
               path="/dessert"
               element={<DessertSection addToBasket={addToBasket} />}
+            />
+            <Route
+              path="/burger"
+              element={<BurgerSection addToBasket={addToBasket} />} // Add BurgerSection route
+            />
+            <Route
+              path="/cake"
+              element={<CakeSection addToBasket={addToBasket} />} // Add CakeSection route
+            />
+            <Route
+              path="/coffee"
+              element={<CoffeeSection addToBasket={addToBasket} />} // Add CoffeeSection route
             />
             <Route
               path="/basket"

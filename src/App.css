@@ -59,6 +59,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  overflow-y: auto; /* Add this line to enable vertical scrolling */
+
   transition: left 0.3s ease;
   z-index: 1;
 }
@@ -360,4 +362,107 @@ body {
 
 .price {
   font-weight: bold;
+}
+/* Cake section styles */
+.cake-section h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.cake-section p {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.cake-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cake-item {
+  background-color: #ffffff;
+  color: #23262a;
+  width: 45%;
+  margin: 10px 2.5%;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cake-item:hover {
+  transform: scale(1.05);
+}
+
+.cake-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.cake-info {
+  margin-top: 10px;
+}
+
+.cake-info h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.cake-info p {
+  font-size: 16px;
+  color: #e6970f;
+}
+
+.cake-info button {
+  background-color: #e6970f;
+  color: #ffffff;
+  border: solid;
+  border-width: 5px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  border-color: black;
+  font-size: 16px;
+}
+
+.cake-info button:hover {
+  background-color: #d5860e;
+}
+
+.cake-description {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #312e2e;
+  border-radius: 8px;
+  padding: 20px;
+  z-index: 9999;
+  width: 80%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cake-description-content {
+  text-align: center;
+}
+
+.cake-description h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #cfcfcf;
+}
+
+.cake-description p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #e5dede;
 }
